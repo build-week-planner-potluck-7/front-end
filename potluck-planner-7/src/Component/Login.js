@@ -25,7 +25,7 @@ export class login extends React.Component {
             isLoading: true
         })
         console.log(this.state.credentials)
-        axios.post(`${BASE_URL}`, this.state.credentials)
+        axios.post(`http://localhost:3000/landing`, this.state.credentials)
             .then( resp => {
                 console.log(resp);
                 this.setState({
