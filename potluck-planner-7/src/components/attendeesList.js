@@ -3,8 +3,9 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const initialFormValues = {
-    eventName: '',
-    name: '',
+    event_name: '',
+    first_name: '',
+    last_name:'',
     email: ''
 }
 const initialAttendees = []
@@ -30,9 +31,9 @@ export default function AttendeesList(props) {
     
     const submit = () => {
         const newAttendee = {
-            eventName: formValues.eventName,
-            firstName: formValues.name,
-            lastName: formValues.lastName,
+            eventName: formValues.event_name,
+            firstName: formValues.first_name,
+            lastName: formValues.last_name,
             email: formValues.email,
         }
         postNewAttendees(newAttendee)
@@ -60,8 +61,8 @@ export default function AttendeesList(props) {
             <label>
                 Select an event you want to attend:
                 <select
-                name='eventName'
-                value={values.eventName}
+                name='event_name'
+                value={values.event_name}
                 onChange={onChange}
                 >
                     {
@@ -76,9 +77,9 @@ export default function AttendeesList(props) {
             <label>
                 First name:
                 <input 
-                name='name'
+                name='first_name'
                 type='text'
-                value={values.firstName} // fix this line later
+                value={values.first_name} // fix this line later
                 onChange={onChange}
                 placeholder='First name'
                 />
@@ -86,9 +87,9 @@ export default function AttendeesList(props) {
             <label>
                 Last name:
                 <input 
-                name='name'
+                name='last_name'
                 type='text'
-                value={values.lastName} // fix this line later
+                value={values.last_name} // fix this line later
                 onChange={onChange}
                 placeholder='Last name'
                 />
