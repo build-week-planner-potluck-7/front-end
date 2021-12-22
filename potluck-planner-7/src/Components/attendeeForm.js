@@ -24,17 +24,17 @@ export default function AttendeesList(props) {
         })
     }
     
-    const onChange = (name, value) => {
+    const onChange = (evt) => {
         const { name, value } = evt.target
         change(name, value)
     }
     
     const submit = () => {
         const newAttendee = {
-            eventName: formValues.event_name,
-            firstName: formValues.first_name,
-            lastName: formValues.last_name,
-            email: formValues.email,
+            event_name: formValues.event_name.trim(),
+            first_name: formValues.first_name.trim(),
+            last_name: formValues.last_name.trim(),
+            email: formValues.email.trim(),
         }
         postNewAttendees(newAttendee)
     }
@@ -62,7 +62,7 @@ export default function AttendeesList(props) {
                 Select an event you want to attend:
                 <select
                 name='event_name'
-                value={values.event_name}
+                value={formValues.event_name}
                 onChange={onChange}
                 >
                     {
@@ -79,7 +79,7 @@ export default function AttendeesList(props) {
                 <input 
                 name='first_name'
                 type='text'
-                value={values.first_name} // fix this line later
+                value={formValues.first_name} // fix this line later
                 onChange={onChange}
                 placeholder='First name'
                 />
@@ -89,7 +89,7 @@ export default function AttendeesList(props) {
                 <input 
                 name='last_name'
                 type='text'
-                value={values.last_name} // fix this line later
+                value={formValues.last_name} // fix this line later
                 onChange={onChange}
                 placeholder='Last name'
                 />
@@ -99,14 +99,14 @@ export default function AttendeesList(props) {
                 <input
                 name='email'
                 type='email'
-                value={values.email} // fix this line later
+                value={formValues.email} // fix this line later
                 onChange={onChange}
                 placeholder='Email address'
                 />                
             </label>
             {/* This form needs to be able for user to choose 
                 what item they'd like to be responsible or bringing */}
-            <button type='submitButton' onSubmit={onSubmit}>Submit</button>
+            <button type='submitButton' onSubmit={onSubmit}>Next</button>
             </form>
         </div>
     )
