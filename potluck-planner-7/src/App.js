@@ -3,6 +3,9 @@ import './App.css';
 import { Route, Switch, Link } from 'react-router-dom';
 import Home from './Components/homepage.js';
 import Login from './Components/Login.js';
+import Event from './Components/eventForms.js';
+import Food from './Components/foodForm.js';
+import Guests from './Components/attendeeForm.js';
 
 
 function App() {
@@ -15,15 +18,27 @@ function App() {
       </nav>
 
     <Switch>
+      {/* <Route path='/guests'>
+        <Guests />
+      </Route> */}
+
+      <Route path='/foodForm'>
+        <Food />
+      </Route>
+
+      <Route path='/eventForm'>
+        <Event />
+      </Route>
+
       <Route path='/login'>
         <Login />
       </Route>
-    </Switch>
+    
       <Route exact path='/'>
         <Home />
       </Route>
 
-
+      </Switch>
     </div>
   );
 }
