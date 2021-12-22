@@ -36,9 +36,9 @@ const FoodForm = () => {
 
 
     return (
-        <form className='form-container' onSubmit={handleSubmit}>
+        <form className='form' onSubmit={handleSubmit}>
             <div>
-            <h2>What do you want your guests to bring to your potluck?</h2>
+            <h2>What food do you want at your potluck?</h2>
             </div>
                 <div>
                     <label>

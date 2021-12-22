@@ -25,7 +25,7 @@ export class login extends React.Component {
             isLoading: true
         })
         console.log(this.state.credentials)
-        axios.post(`http://localhost:3000/landing`, this.state.credentials)
+        axios.post(`https://lambda-build-week.herokuapp.com/`, this.state.credentials)
             .then( resp => {
                 console.log(resp);
                 this.setState({
@@ -44,7 +44,7 @@ export class login extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='login'>
               <form onSubmit={this.login}>
                   <label>Username:
                     <input 
@@ -64,7 +64,7 @@ export class login extends React.Component {
                         placeholder='Enter password'
                     />
                   </label>
-                  <button type='submit'>Login</button>
+                  <button type='submit' className='submit'>Login</button>
                   {this.state.isLoading && 
                   <p>Loading!!!</p>}
               </form>

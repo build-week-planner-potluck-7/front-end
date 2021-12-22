@@ -2,37 +2,72 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  color: #282846;
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid #f6f6f6;
+  box-shadow: 0px 1px 6px -2px #808080;
+  padding: 3%;
+  margin: 1% 2%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+nav a {
+  color: #282846;
+  padding: 2%;
+  text-decoration: none;
+}
+nav a:hover {
+  font-weight: 700;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.login form {
   display: flex;
   flex-direction: column;
+  margin-top: 25px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.full-form{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 2% 30%;
+  padding: 1%;
+  background-color: white;
+  border: 2px solid #282846;
+  box-shadow: 0px 1px 6px -2px #808080;
+  border-radius: 10px;
+  width: 40%;
+}
+label {
+  margin: 2px;  
+}
+input, select {
+  margin: 2px;
+  padding: 5px;
+  border-radius: 10px;
+}
+button {
+  color: #282846;
+  border: 1px solid #282846;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 5px; 
+}
+button.add, button.submit {
+  margin: 1%;
+  font-weight: 700;
+  padding: 10px;
+  background-color: white;
+  width: 15%;
+}
+button.remove {
+  color: red;
+  background-color: #f6f6f6;
+  border: 1px solid red;
+  border-radius: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:hover {
+  transform: scale(1.1);
 }
