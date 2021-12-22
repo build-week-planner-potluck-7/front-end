@@ -18,9 +18,9 @@ function App() {
       </nav>
 
     <Switch>
-      {/* <Route path='/guests'>
+      <Route path='/guests'>
         <Guests />
-      </Route> */}
+      </Route>
 
       <Route path='/foodForm'>
         <Food />
