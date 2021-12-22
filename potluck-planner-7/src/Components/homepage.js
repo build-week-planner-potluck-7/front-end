@@ -5,10 +5,10 @@ function Home(props) {
 	// const{ user, setUser }=props;
 	const [user, setUser] = useState({ username: '', password: '' })
 	const [name, setName] = useState('')
-	useEffect(() => {
-		const username = JSON.parse(localStorage.getItem('user')).message
-		setName(username)
-	}, [])
+	// useEffect(() => {
+	// 	const username = JSON.parse(localStorage.getItem('user')).message
+	// 	setName(username)
+	// }, [])
 	// console.log('Home',user)
 	const hist = useHistory()
 	const routeToLogin = () => {
@@ -35,4 +35,4 @@ function Home(props) {
 	)
 }
 
-export default Home
+export default Home;
