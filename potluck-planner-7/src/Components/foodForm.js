@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 
 
 const FoodForm = () => {
@@ -94,7 +95,7 @@ const FoodForm = () => {
                 </div>
                 <div className='button-section'>
                     <button className="button add" type="button" onClick={() => addFormField()}>Add Item</button>
-                    <button className='button submit'>Submit Potluck</button>
+                    <Link to='./guests' className='formLink'>Invite Guests</Link>
                 </div>
 
         </form>

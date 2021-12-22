@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 const initialFormValues= {
-    organizer: '',
+    organizer_id: '',
     event_name: '',
     description: '',
     event_date: '',
@@ -45,7 +45,7 @@ const onChange = evt =>{
 }
 const submitForm = () => {
     const newEvent = {
-       organizer: formValues.organizer.trim(),
+       organizer_id: formValues.organizer_id.trim(),
        event_name: formValues.event_name.trim(),
        description: formValues.description.trim(),
        event_date: formValues.event_date,
@@ -72,9 +72,9 @@ return(
         <div className='form'>
         <label>Organizer
             <input
-                value={formValues.organizer}
+                value={formValues.organizer_id}
                 onChange={onChange}
-                name='organizer'
+                name='organizer_id'
                 type='text'
             />
         </label>
