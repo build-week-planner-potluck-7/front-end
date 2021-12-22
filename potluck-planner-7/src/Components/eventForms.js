@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './App.css';
+// import './App.css';
 import axios from 'axios';
 
 
@@ -63,6 +63,7 @@ useEffect(() => {
 
 return(
     <form onSubmit={onSubmit}> 
+        <div className='form'>
         <label>Organizer
             <input
                 value={formValues.organizer}
@@ -113,6 +114,7 @@ return(
                 type='text'
             />
         </label>
+        </div>
     </form>
     )
 }

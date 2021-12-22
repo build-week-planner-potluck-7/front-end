@@ -3,9 +3,14 @@ import './App.css';
 import { Route, Switch, Link } from 'react-router-dom';
 import Home from './Components/homepage.js';
 import Login from './Components/Login.js';
+// import Logout from './Components/Logout.js';
+
 import Event from './Components/eventForms.js';
 import Food from './Components/foodForm.js';
-import Guests from './Components/attendeeForm.js';
+// import Guests from './Components/attendeeForm.js';
+
+// import Signup from './Components/Signup.js';
+
 
 
 function App() {
@@ -15,6 +20,7 @@ function App() {
       <nav>
         <Link to='/'>Home</Link>
         <Link to='/login'>Log In</Link>
+
       </nav>
 
     <Switch>

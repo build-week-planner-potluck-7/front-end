@@ -36,10 +36,11 @@ const FoodForm = () => {
 
 
     return (
-        <form className='form' onSubmit={handleSubmit}>
+        <form className='form-page' onSubmit={handleSubmit}>
             <div>
             <h2>What food do you want at your potluck?</h2>
             </div>
+            <div className='form'>
                 <div>
                     <label>
                         <select className='type-dropdown' value={formValues.foodType} onChange={handleChange}name='foodType'>
@@ -90,6 +91,7 @@ const FoodForm = () => {
 
                 </div>
                 ))}
+                </div>
                 <div className='button-section'>
                     <button className="button add" type="button" onClick={() => addFormField()}>Add Item</button>
                     <button className='button submit'>Submit Potluck</button>
