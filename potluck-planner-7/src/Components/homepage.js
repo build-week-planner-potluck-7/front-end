@@ -42,7 +42,6 @@ function Home(props) {
 			</header>
 			<div className='formLinks'>
 				<Link to='./eventForm' className='formLink'>Create an Event!</Link>
-				<Link to='./foodForm' className='formLink'>Add Food</Link>
 				{/* <Link to='./guests' className='formLink'>Invite Guests</Link> */}
 				
 

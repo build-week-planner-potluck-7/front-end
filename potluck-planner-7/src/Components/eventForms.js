@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 // import './App.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 
@@ -34,16 +35,21 @@ const postNewEvent = newEvent => {
         }).catch(err => console.error(err))
 }
 
-const onChange = (name, value) => {
+const inputChange = (name, value) => {
     setFormValues({...formValues, [name]:value})
+}
+
+const onChange = evt =>{
+    const {name, value} = evt.target
+    inputChange(name, value)
 }
 const submitForm = () => {
     const newEvent = {
        organizer: formValues.organizer.trim(),
        event_name: formValues.event_name.trim(),
        description: formValues.description.trim(),
-       event_date: formValues.event_date.trim(),
-       event_time: formValues.event_time.trim(),
+       event_date: formValues.event_date,
+       event_time: formValues.event_time,
        location: formValues.location
     }
     postNewEvent(newEvent)
@@ -94,7 +100,7 @@ return(
                 value={formValues.event_date}
                 onChange={onChange}
                 name='event_date'
-                type='text'
+                type='date'
             />
         </label>
         <label>Event Time
@@ -102,7 +108,7 @@ return(
                 value={formValues.event_time}
                 onChange={onChange}
                 name='event_time'
-                type='text'
+                type='time'
             />
         </label>
     
@@ -114,6 +120,7 @@ return(
                 type='text'
             />
         </label>
+        <Link to='./foodForm' className='formLink'>Add Food</Link>
         </div>
     </form>
     )
