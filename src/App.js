@@ -10,8 +10,7 @@ import Signup from './Components/Signup';
 import Logout from './Components/Logout.js';
 import Event from './Components/eventForms.js';
 import Food from './Components/foodForm.js';
-
-// import Guests from './Components/attendeeForm.js';
+import Guests from './Components/inviteGuest.js';
 
 function App() {
   return (
@@ -24,9 +23,9 @@ function App() {
       </nav>
 
     <Switch>
-        {/* <Route path='/guests'>
+        <Route path='/guests'>
           <Guests />
-        </Route> */}
+        </Route>
 
         <Route path='/foodForm'>
           <Food />
