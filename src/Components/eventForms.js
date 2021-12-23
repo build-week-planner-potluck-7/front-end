@@ -22,18 +22,20 @@ const [events, setEvents] = useState(initialEvents)
 const [formValues, setFormValues] = useState(initialFormValues)
 
 const getEvents = () => {
-    axios.get('')
+    axios.get('https://lambda-build-week.herokuapp.com/potlucks')
         .then(resp => {
             setEvents(resp.data)
         }).catch(err => console.error(err))
 }
 
 const postNewEvent = newEvent => {
-    axios.post('', newEvent)
+    axios.post('https://lambda-build-week.herokuapp.com/potlucks', newEvent)
         .then(resp => {
             setEvents([ resp.data, ...events])
         }).catch(err => console.error(err))
 }
+
+
 
 const inputChange = (name, value) => {
     setFormValues({...formValues, [name]:value})
@@ -76,6 +78,7 @@ return(
                 onChange={onChange}
                 name='organizer_id'
                 type='text'
+                placeholder='Enter your name'
             />
         </label>
         <label>Event Name
@@ -84,7 +87,7 @@ return(
                 onChange={onChange}
                 name='event_name'
                 type='text'
-                placeholder='enter event name'
+                placeholder='Enter event name'
             />
         </label>
         <label>Event Description
@@ -93,6 +96,7 @@ return(
                 onChange={onChange}
                 name='description'
                 type='text'
+                placeholder='Enter event description'
             />    
         </label>
         <label>Event Date
@@ -118,9 +122,10 @@ return(
                 onChange={onChange}
                 name='location'
                 type='text'
+                placeholder='Enter event location'
             />
         </label>
-        <Link to='./foodForm' className='formLink'>Add Food</Link>
+        <Link to='./foodForm' className='formLink' onClick={submitForm}>Add Food</Link>
         </div>
     </form>
     )
