@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
@@ -9,7 +9,7 @@ const initialFormValues = {
     email: ''
 }
 const initialAttendees = []
-const initialEventList = []
+const initialEventList = [{event_name: 'This is event.'}]
 
 export default function AttendeesList() {
     const history = useHistory()
@@ -17,13 +17,6 @@ export default function AttendeesList() {
     const [ formValues, setFormValues ] = useState(initialFormValues)
     const [ eventList, setEventList ] = useState(initialEventList)
     
-    const getEventList = () => { // call this somewhere later
-        axios.get(`https://lambda-build-week.herokuapp.com/potlucks`)
-        .then(res => {
-            console.log(res.data)
-            setEventList(res.data)
-        }).catch(err => console.error(err))
-    }
 
 
     const change = (name, value) => {
@@ -61,6 +54,20 @@ export default function AttendeesList() {
         submit()
     }
     
+    useEffect(() => {
+        axios.get(`https://lambda-build-week.herokuapp.com/potlucks`)
+            .then(res => {
+                const newEvt = res.data.map(evt => {
+                    const event = {
+                        event_name: evt.event_name,
+                    }       
+                    return event
+                })                
+                console.log(newEvt)
+                setEventList([...newEvt])
+            }).catch(err => console.error(err))    
+    },[])
+
     return (
         <div className='attendees container'>
             <form id='attendees' onSubmit={onSubmit}>
