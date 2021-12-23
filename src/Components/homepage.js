@@ -41,6 +41,7 @@ function Home(props) {
 			</header>
 			<div className='formLinks'>
 				<Link to='./eventForm' className='formLink'>Create an Event!</Link>
+				<Link to='./attendees' className='formLink'>Attend an Event!</Link>
 			</div>
 		</div>
 	)

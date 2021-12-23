@@ -11,6 +11,8 @@ import Logout from './Components/Logout.js';
 import Event from './Components/eventForms.js';
 import Food from './Components/foodForm.js';
 import Guests from './Components/inviteGuest.js';
+import Attendees from './Components/attendeeForm.js';
+
 
 function App() {
   return (
@@ -23,6 +25,10 @@ function App() {
       </nav>
 
     <Switch>
+        <Route path='/attendees'>
+          <Attendees />
+        </Route>
+
         <Route path='/guests'>
           <Guests />
         </Route>

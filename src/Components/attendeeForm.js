@@ -9,12 +9,21 @@ const initialFormValues = {
     email: ''
 }
 const initialAttendees = []
+const initialEventList = []
 
-export default function AttendeesList(props) {
+export default function AttendeesList() {
     const history = useHistory()
     const [ attendees, setAttendees ] = useState(initialAttendees)
     const [ formValues, setFormValues ] = useState(initialFormValues)
-    const { eventList } = props // fix it later
+    const [ eventList, setEventList ] = useState(initialEventList)
+    
+    const getEventList = () => { // call this somewhere later
+        axios.get(`https://lambda-build-week.herokuapp.com/potlucks`)
+        .then(res => {
+            console.log(res.data)
+            setEventList(res.data)
+        }).catch(err => console.error(err))
+    }
 
 
     const change = (name, value) => {
@@ -24,14 +33,14 @@ export default function AttendeesList(props) {
         })
     }
     
-    const onChange = (name, value) => {
+    const onChange = (evt) => {
         const { name, value } = evt.target
         change(name, value)
     }
     
     const submit = () => {
         const newAttendee = {
-            eventName: formValues.event_name,
+            event_name: formValues.event_name,
             firstName: formValues.first_name,
             lastName: formValues.last_name,
             email: formValues.email,
@@ -51,9 +60,7 @@ export default function AttendeesList(props) {
         history.push('/') // where would it go after submitting?
         submit()
     }
-
     
-
     return (
         <div className='attendees container'>
             <form id='attendees' onSubmit={onSubmit}>
@@ -63,13 +70,13 @@ export default function AttendeesList(props) {
                 Select an event you want to attend:
                 <select
                 name='event_name'
-                value={values.event_name}
+                value={formValues.event_name}
                 onChange={onChange}
                 >
                     {
                         eventList.map(evt => {
                             return (
-                                <option value={evt}>{evt}</option>
+                                <option value={evt.event_name}>{evt.event_name}</option>
                             )
                         })
                     }
@@ -80,7 +87,7 @@ export default function AttendeesList(props) {
                 <input 
                 name='first_name'
                 type='text'
-                value={values.first_name} // fix this line later
+                value={formValues.first_name} 
                 onChange={onChange}
                 placeholder='First name'
                 />
@@ -90,7 +97,7 @@ export default function AttendeesList(props) {
                 <input 
                 name='last_name'
                 type='text'
-                value={values.last_name} // fix this line later
+                value={formValues.last_name} // fix this line later
                 onChange={onChange}
                 placeholder='Last name'
                 />
@@ -100,7 +107,7 @@ export default function AttendeesList(props) {
                 <input
                 name='email'
                 type='email'
-                value={values.email} // fix this line later
+                value={formValues.email} // fix this line later
                 onChange={onChange}
                 placeholder='Email address'
                 />                
