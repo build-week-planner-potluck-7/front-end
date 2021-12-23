@@ -33,11 +33,10 @@ function Home(props) {
       				alt='potluck'
       			/>
 
-					<h1>Potluck planner</h1>
+					<h1>Potluck Planner</h1>
 					<h2>
 						<span>{name}</span>
 					</h2>
-					<button onClick={Logout}>Logout</button>
 				</div>
 			</header>
 			<div className='formLinks'>

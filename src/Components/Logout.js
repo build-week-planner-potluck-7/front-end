@@ -11,7 +11,7 @@ const Logout = () => {
             .then(res => {
                 console.log(res);
                 localStorage.removeItem('token')
-                push('/login')
+                push('/homepage')
             })
           .catch(err => {
                 console.log(err);

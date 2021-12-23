@@ -1,76 +1,65 @@
-import React from 'react'
-import axios from 'axios'
+import React, { useState } from 'react'
+import axios from "axios";
+import { useHistory, Link } from 'react-router-dom';
 
-export class login extends React.Component {
-    state = {
-        credentials: {
-            username: '',
-            password: ''
-        }
+const login = () => {
+    const initialState = {
+        username: '',
+        password: ''
     };
 
-    handleChange = evt => {
-        this.state({
-            credentials: {
-                ...this.state.credentials,
-                [evt.target.name]: evt.target.value
-            }
-        });
-    };
+    const [credentials, setCredentials] = useState(initialState);
+    const { push } = useHistory();
 
-    login = e => {
+    const submitHandle = e => {
         e.preventDefault();
-        this.setState({
-            ...this.state,
-            isLoading: true
-        })
-        console.log(this.state.credentials)
-        axios.post(`https://lambda-build-week.herokuapp.com/`, this.state.credentials)
+        axios.post(`https://lambda-build-week.herokuapp.com/organizers/login`, credentials)
             .then( resp => {
                 console.log(resp);
-                this.setState({
-                    ...this.state,
-                    isLoading: false
-                })
                 const { token, username } = resp.data
                 localStorage.setItem('token', token)
                 localStorage.setItem("username", username);
-                // this.props.history.push('/protected')
+                push('/homepage')
             })
             .catch(err => {
                 console.log(err)
             })
     }
 
-    render() {
-        return (
-            <div className='login'>
-              <form onSubmit={this.login}>
-                  <label>Username:
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setCredentials({
+          ...credentials,
+          [name]: value,
+        });
+      };
+
+    return (
+        <div className='login'>
+            <form onSubmit={submitHandle}>
+                <label>Username:
                     <input 
                         type='text'
                         name='username'
-                        value={this.state.credentials.username}
-                        onChange={this.handleChange}
+                        value={credentials.username}
+                        onChange={handleChange}
                         placeholder='Enter username'
                     />
-                  </label>
-                  <label>Password:
+                </label>
+                <label>Password:
                     <input 
                         type='password'
                         name='password'
-                        value={this.state.credentials.password}
-                        onChange={this.handleChange}
+                        value={credentials.password}
+                        onChange={handleChange}
                         placeholder='Enter password'
                     />
-                  </label>
-                  <button type='submit' className='submit'>Login</button>
-                  {this.state.isLoading && 
-                  <p>Loading!!!</p>}
-              </form>
-            </div>
-        )
-    }
+                </label>
+                <button type='submit' className='submit'>Login</button>
+                <Link to='/signup'>Signup Now</Link>
+            </form>
+        </div>
+    )
 }
 
 export default login
