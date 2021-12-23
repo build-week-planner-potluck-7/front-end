@@ -13,14 +13,14 @@ const FoodForm = () => {
 
 
     const getFood = () => {
-        axios.get('https://reqres.in/api/potluck')
+        axios.get('https://lambda-build-week.herokuapp.com/foods/1')
             .then(resp => {
-                setFood(resp.data.data)
+                setFood(resp.data)
             }).catch(err => console.error(err))
     }
     
     const postFood = newFood => {
-        axios.post('https://reqres.in/api/potluck', newFood)
+        axios.post('https://lambda-build-week.herokuapp.com/foods', newFood)
             .then(resp => {
                 setFood([ resp.data, ...food])
             }).catch(err => console.error(err))

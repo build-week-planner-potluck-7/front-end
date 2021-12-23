@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from "axios";
 import { useHistory, Link } from 'react-router-dom';
 
-const login = () => {
+const Login = () => {
     const initialState = {
         username: '',
         password: ''
@@ -56,10 +56,10 @@ const login = () => {
                     />
                 </label>
                 <button type='submit' className='submit'>Login</button>
-                <Link to='/signup'>Signup Now</Link>
+                <Link to='/signup' className='formLink'>Signup Now</Link>
             </form>
         </div>
     )
 }
 
-export default login
+export default Login

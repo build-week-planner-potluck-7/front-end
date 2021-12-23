@@ -58,6 +58,7 @@ export default function AttendeesList(props) {
         <div className='attendees container'>
             <form id='attendees' onSubmit={onSubmit}>
             <h2>Attend our potluck</h2>
+            <div className='form'>
             <label>
                 Select an event you want to attend:
                 <select
@@ -104,9 +105,10 @@ export default function AttendeesList(props) {
                 placeholder='Email address'
                 />                
             </label>
+            </div>
             {/* This form needs to be able for user to choose 
                 what item they'd like to be responsible or bringing */}
-            <button type='submitButton' onSubmit={onSubmit}>Submit</button>
+            <button type='submitButton' className='submit' onSubmit={onSubmit}>Submit</button>
             </form>
         </div>
     )

@@ -52,6 +52,7 @@ const Signup = () => {
                 <h2>Create Account</h2>
             </div>
           <form onSubmit={handleSubmit}>
+          <div className='form'>
               <label>First Name:
                 <input 
                   type='text'
@@ -103,8 +104,9 @@ const Signup = () => {
                   <option >Guest</option>
                 </select>
               </label>
-              <button type='clearButton' onClick={clearForm}>Clear</button>
-              <button type='submitButton'>Submit</button>
+              </div>
+              <button type='clearButton' className='remove' onClick={clearForm}>Clear</button>
+              <button type='submitButton' className='submit' >Submit</button>
           </form>
         </div>
     )
