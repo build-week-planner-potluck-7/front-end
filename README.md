@@ -45,7 +45,7 @@ Front End React I Engineer***
 
 Github: https://github.com/BrittanyPete
 
-LinkedIn: https://www.linkedin.com/in/brittany-petersen2021/
+LinkedIn: https://www.linkedin.com/in/brittany-petersen/
 
 
 
